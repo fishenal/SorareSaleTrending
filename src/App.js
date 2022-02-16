@@ -1,5 +1,17 @@
 import './App.css';
+import axios from 'axios';
 
+axios({
+  method: 'get',
+  url: 'http://localhost:3001',
+})
+.then(function (response) {
+  console.log('on then')
+  console.log(response);
+})
+.catch(function (error) {
+  console.log(error);
+});
 function App() {
   return (
     <div className="App">
