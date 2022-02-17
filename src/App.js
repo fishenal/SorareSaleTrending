@@ -1,18 +1,14 @@
 import './App.css';
-import axios from 'axios';
+import { fetchPlayer } from './fetch/fetch.js';
+import { useState } from "react";
 
-axios({
-  method: 'get',
-  url: 'http://localhost:3001',
-})
-.then(function (response) {
-  console.log('on then')
-  console.log(response);
-})
-.catch(function (error) {
-  console.log(error);
-});
 function App() {
+  const [playerName, setPlayerName] = useState("");
+
+  const queryPlayer = () => {
+    fetchPlayer(playerName)
+  }
+
   return (
     <div className="App">
       <header className="w-full border-b">
@@ -22,10 +18,15 @@ function App() {
         <div className="grid grid-cols-4 my-2.5">
           <span className="my-2.5">Player name:</span>
           <span className="col-span-2">
-            <input className="px-5 py-2.5 bg-white border shadow-sm border-slate-300 placeholder-slate-400 focus:outline-none focus:border-sky-500 focus:ring-sky-500 block w-full rounded-md sm:text-sm focus:ring-1"/>
+            <input
+            className="px-5 py-2.5 bg-white border shadow-sm border-slate-300 placeholder-slate-400 focus:outline-none focus:border-sky-500 focus:ring-sky-500 block w-full rounded-md sm:text-sm focus:ring-1"
+            onChange={(e) => setPlayerName(e.target.value)}/>
           </span>
           <span>
-            <button className="bg-sky-500 hover:bg-sky-700 px-5 py-2.5 text-sm leading-5 rounded-md font-semibold text-white">Search</button>
+            <button
+            className="bg-sky-500 hover:bg-sky-700 px-5 py-2.5 text-sm leading-5 rounded-md font-semibold text-white"
+            onClick={queryPlayer}
+            >Search</button>
           </span>
         </div>
         <div className="grid grid-cols-3 my-2.5">
