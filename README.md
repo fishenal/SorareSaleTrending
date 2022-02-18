@@ -36,5 +36,5 @@ Welcome contribute if you want to make this project better. Create issues or PR.
 # Plan
 - Input query only support player slug, may can be upgrade.
 - Solve 100 cards limit and hack more.
-- Wait Sorare.com to support more office/legal APIs.
+- Wait Sorare.com to support more offical/legal APIs.
 
