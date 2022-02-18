@@ -1,74 +1,40 @@
 # SorareSaleTrending
-A website to check sorare card user sale data/trending
+A website to check sorare players info, cards info, order infos.
 
+# Screenshot
+![alt screenshot](https://github.com/fishenal/SorareSaleTrending/blob/main/demoImages/demo1.jpg?raw=true)
 
-# Getting Started with Create React App
+# Start project
+```
+npm install
+npm run start
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+// in another terminal
+npm run server
+```
 
-## Available Scripts
+visit http://localhost:3000/
 
-In the project directory, you can run:
+# Dependencies
+React, nodejs
 
-### `npm start`
+# Theory
+Sorare Graphql API currently open without authorization(only a getable operationId), I make a nodejs(Koa) middleware to fetch datas from sorare.com. Then get them from a front-end site, and combine datas, and fine display on website UI(tailwind.css).
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+# Issues
+- Can't get available card list. sorare.com seems using a third-party API to handle player card list, which is highly safety and not easy to hack in.
+- So I tried to loop all cards base on supply ids.
+- But ```CardsQuery``` has a 100 cards limited.
+- So now we can only get latest 100 cards order info.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+# Note
+I don't think this site should run on Internet. Only use for local and guide you to buy/sale cards on Sorare.com.
 
-### `npm test`
+# Contribute
+Welcome contribute if you want to make this project better. Create issues or PR.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+# Plan
+- Input query only support player slug, may can be upgrade.
+- Solve 100 cards limit and hack more.
+- Wait Sorare.com to support more office/legal APIs.
 
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
